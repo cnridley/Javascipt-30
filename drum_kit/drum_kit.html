@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Kit</title>
+</head>
+
+<link rel="stylesheet" href="../css/drum_kit.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<body>
+    <header><a href="../index.html">Drum Kit Made Wth JS</a></header>
+
+    <section class="desc">Hit the Keyboard keys to play the drum!!</section>
+
+      <div class="keys row">
+    <div data-key="65" class="key col-lg-3">
+      <kbd>A</kbd> <!-- kbd stands for keyboard keys. Each keyboard matches wiith a data-key. -->
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="83" class="key col-lg-3">
+      <kbd>S</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="68" class="key col-lg-3">
+      <kbd>D</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="70" class="key col-lg-3">
+      <kbd>F</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="71" class="key col-lg-3">
+      <kbd>G</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="72" class="key col-lg-3">
+      <kbd>H</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="74" class="key col-lg-3">
+      <kbd>J</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="75" class="key col-lg-3">
+      <kbd>K</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="76" class="key col-lg-3">
+      <kbd>L</kbd>
+      <span class="sound">tink</span>
+    </div>
+  </div>
+
+  <audio data-key="65" src="sounds/clap.wav"></audio>
+  <audio data-key="83" src="sounds/hihat.wav"></audio>
+  <audio data-key="68" src="sounds/kick.wav"></audio>
+  <audio data-key="70" src="sounds/openhat.wav"></audio>
+  <audio data-key="71" src="sounds/boom.wav"></audio>
+  <audio data-key="72" src="sounds/ride.wav"></audio>
+  <audio data-key="74" src="sounds/snare.wav"></audio>
+  <audio data-key="75" src="sounds/tom.wav"></audio>
+  <audio data-key="76" src="sounds/tink.wav"></audio>
+
+<script>
+
+  function removeTransition(e) {
+      //skip if it isnt a transform poroperty
+    if (e.propertyName !== 'transform') return; 
+    // remove the clas 'playing' so. that the border gets removed.
+    e.target.classList.remove('playing'); 
+  }
+
+  function playSound(e){
+      //query selector for the audio tag with matching keycode.
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);  //do not forget {} brackets!!
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+     // stops function from running if there is no keycode for keyboard key.
+    if(!audio) return;
+     //rewind to start
+    audio.currentTime = 0;
+    audio.play(); 
+    key.classList.add("playing");
+  }
+
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => addEventListener("transitionend", removeTransition));
+window.addEventListener('keydown', playSound)
+
+</script>
+
+
+</body>
+
+</html>
