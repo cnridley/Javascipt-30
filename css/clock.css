@@ -1,0 +1,56 @@
+.clockBody {
+    background-color: yellow;
+}
+
+header {
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    width: 100vw;
+    font-size: 40px;
+    text-decoration: underline;
+}
+
+
+.desc {
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    width: 100vw;
+    font-size: 20px;
+}
+
+.clock{ /* The clock face that you see */
+    width: 30rem;
+    height: 30rem;
+    border-radius: 50%;
+    border: black 20px solid;
+    margin: 30px auto;
+    position: relative;
+    background-color: white;
+    padding: 2rem;
+}
+
+.clock-face{ /* 'invisible' div that contains the clock hands */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-20px); /* account for the height of the clock hands */
+}
+
+.hands{
+    width: 50%;
+      height: 6px;
+      background: black;
+      position: absolute;
+      top: 50%;
+      transform-origin: 100%; /* moves the point of rotation to the end of the x-axis i.e the far right of the line*/ 
+      transform: rotate(90deg); /* rotates the 3 hands so that the start at 12o'clock*/
+      transition: all 0.05s; /* adds a transtion timing so that it is not immediate*/
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hour-hands{}
+
+.min-hands{}
+
+.sec-hands
+
