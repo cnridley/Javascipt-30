@@ -1,0 +1,20 @@
+header {
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    width: 100vw;
+    font-size: 40px;
+    text-decoration: underline;
+}
+
+.desc {
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    width: 100vw;
+    font-size: 20px;
+}
+
+.image {
+    justify-content: center;
+    margin: auto;
+    margin-top: 40px;
+}
