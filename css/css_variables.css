@@ -1,3 +1,24 @@
+/*-- must have root variables declared for JS to be able to update variale --*/
+:root {
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 10px;
+}
+
+img {
+    padding: var(--spacing); /*-- will inherit the variable value from the root --*/
+    background: var(--base);
+    filter: blur(var(--blur));
+}
+
+.desc {
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    width: 100vw;
+    font-size: 20px;
+    color: var(--base);
+}
+
 header {
     font-family: 'Roboto Mono', monospace;
     text-align: center;
@@ -6,15 +27,16 @@ header {
     text-decoration: underline;
 }
 
-.desc {
-    font-family: 'Roboto Mono', monospace;
-    text-align: center;
-    width: 100vw;
-    font-size: 20px;
-}
+
 
 .image {
     justify-content: center;
     margin: auto;
     margin-top: 40px;
+}
+
+.controls {
+    margin: auto;
+    text-align: center;
+    padding-top: 30px;
 }
