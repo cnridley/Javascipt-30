@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Panels</title>
+
+<link rel="stylesheet" href="../css/flex_panels.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <header><a href="../index.html">Flex Panels</a></header>
+
+  <div class="panels">
+    <div class="panel panel1">
+      <p>Hey</p>
+      <p>Let's</p>
+      <p>Dance</p>
+    </div>
+    <div class="panel panel2">
+      <p>Give</p>
+      <p>Take</p>
+      <p>Receive</p>
+    </div>
+    <div class="panel panel3">
+      <p>Experience</p>
+      <p>It</p>
+      <p>Today</p>
+    </div>
+    <div class="panel panel4">
+      <p>Give</p>
+      <p>All</p>
+      <p>You can</p>
+    </div>
+    <div class="panel panel5">
+      <p>Life</p>
+      <p>In</p>
+      <p>Motion</p>
+    </div>
+  </div>
+<script>
+    const panels = document.querySelectorAll('.panel');
+
+    function toggleOpen() {
+      console.log('Hello');
+      this.classList.toggle('open');
+    }
+
+    function toggleActive(e) {
+      console.log(e.propertyName);
+      if (e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active');
+      }
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+</script>
+
+  </body>
